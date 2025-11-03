@@ -1,0 +1,142 @@
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #32324a;
+  border: 1px solid #3f3f5a;
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.9rem;
+  transition: box-shadow 0.2s ease, transform 0.1s ease, background-color 0.2s ease;
+  gap: 1rem;
+}
+
+.todo-item:hover {
+  background-color: #383857;
+  box-shadow: 0 4px 10px rgba(0, 191, 166, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Left side (checkbox + text) */
+.todo-item-left {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex: 1;
+  overflow: hidden;
+}
+
+.todo-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #00bfa6;
+  flex-shrink: 0;
+}
+
+/* Text styling */
+.todo-text {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.todo-title {
+  font-weight: 500;
+  color: #eaeaea;
+  word-wrap: break-word;
+}
+
+.todo-title.completed {
+  text-decoration: line-through;
+  color: #777a8d;
+}
+
+.todo-desc {
+  font-size: 0.8rem;
+  color: #a1a1b5;
+  margin-top: 3px;
+  word-wrap: break-word;
+  line-height: 1.3;
+}
+
+.todo-title.completed + .todo-desc {
+  color: #777a8d;
+}
+
+/* Delete button */
+.delete-btn {
+  background-color: #ff5c5c;
+  padding: 0.4rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+  flex-shrink: 0;
+  border-radius: 10px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.delete-btn:hover {
+  background-color: #e04b4b;
+  transform: translateY(-1px);
+}
+
+.delete-btn i {
+  color: #fff;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .todo-item-left {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .todo-text {
+    width: 100%;
+  }
+
+  .todo-title {
+    font-size: 0.95rem;
+  }
+
+  .todo-desc {
+    font-size: 0.8rem;
+  }
+
+  .delete-btn {
+    align-self: flex-end;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .todo-item {
+    padding: 0.7rem 0.9rem;
+  }
+
+  .todo-title {
+    font-size: 0.9rem;
+  }
+
+  .todo-desc {
+    font-size: 0.75rem;
+  }
+
+  .delete-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 0.9rem;
+  }
+}

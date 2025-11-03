@@ -1,0 +1,86 @@
+.todo-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+/* Wrapper for title + description (if you have both) */
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+/* Input fields */
+.todo-form input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: 1px solid #3f3f5a;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: #32324a;
+  color: #eaeaea;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.todo-form input::placeholder {
+  color: #a1a1b5;
+}
+
+.todo-form input:focus {
+  outline: none;
+  border-color: #00bfa6;
+  box-shadow: 0 0 0 3px rgba(0, 191, 166, 0.25);
+}
+
+/* Add Button */
+.todo-form button {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  background-color: #00bfa6;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.todo-form button:hover {
+  background-color: #00a18d;
+  transform: translateY(-1px);
+}
+
+/* Add icon inside button */
+.todo-form button i {
+  margin: 0;
+  color: #fff;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .input-wrapper {
+    gap: 0.8rem;
+  }
+
+  .todo-form input {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .todo-form button {
+    width: 45px;
+    height: 45px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .todo-form input {
+    padding: 0.55rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,51 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.home-header {
+  flex-shrink: 0;
+}
+
+.home-container > * {
+  width: 100%;
+}
+
+.todo-list-container {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: #00bfa6 #2a2a3d;
+}
+
+/* Chrome scrollbar styling */
+.todo-list-container::-webkit-scrollbar {
+  width: 6px;
+}
+.todo-list-container::-webkit-scrollbar-thumb {
+  background-color: #00bfa6;
+  border-radius: 4px;
+}
+.todo-list-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 📱 Responsive adjustments */
+@media (max-width: 768px) {
+  .home-container {
+    gap: 1.2rem;
+    padding: 0.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    gap: 1rem;
+    padding: 0.3rem 0;
+  }
+}
