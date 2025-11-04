@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TodoItem from "../TodoItem/TodoItem";
 import "./TodoList.css";
-import { faFaceFrown, faFaceSurprise } from "@fortawesome/free-solid-svg-icons";
+import { faFaceSurprise } from "@fortawesome/free-solid-svg-icons";
 
 const TodoList = ({ todos, onToggle, onDelete }) => {
   if (!todos.length)

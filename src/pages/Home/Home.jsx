@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import "./Home.css";
-import { todoService } from "../../apiServices/todoService.js";
+import { todoServices } from "../../apiServices/todoServices.js";
 import TodoForm from "../../components/TodoForm/TodoForm.jsx";
 import TodoList from "../../components/TodoList/TodoList.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListCheck } from "@fortawesome/free-solid-svg-icons";
+import Loader from "../../components/Loader/Loader.jsx";
 
 const Home = () => {
   const [todos, setTodos] = useState([]);
@@ -12,7 +13,7 @@ const Home = () => {
 
   const loadTodos = async () => {
     try {
-      const data = await todoService.getTodos();
+      const data = await todoServices.getTodos();
       setTodos(data);
     } catch (err) {
       console.error(err);
@@ -23,7 +24,7 @@ const Home = () => {
 
   const handleAdd = async (todoData) => {
     try {
-      const newTodo = await todoService.createTodo(todoData);
+      const newTodo = await todoServices.createTodo(todoData);
       setTodos([newTodo, ...todos]);
     } catch (err) {
       console.error(err);
@@ -32,7 +33,7 @@ const Home = () => {
 
   const handleToggle = async (id, update) => {
     try {
-      const updated = await todoService.updateTodo(id, update);
+      const updated = await todoServices.updateTodo(id, update);
       setTodos(todos.map((t) => (t._id === id ? updated : t)));
     } catch (err) {
       console.error(err);
@@ -41,7 +42,7 @@ const Home = () => {
 
   const handleDelete = async (id) => {
     try {
-      await todoService.deleteTodo(id);
+      await todoServices.deleteTodo(id);
       setTodos(todos.filter((t) => t._id !== id));
     } catch (err) {
       console.error(err);
@@ -52,16 +53,36 @@ const Home = () => {
     loadTodos();
   }, []);
 
-  if (loading) return <p>Loading todos...</p>;
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/login"; // redirects user to login
+  };
+
+  if (loading)
+    return (
+      <div className="loader">
+        <Loader />
+        <p>Loading your todos...</p>
+      </div>
+    );
 
   return (
+    <>
+      <button className="logout-btn" onClick={handleLogout}>
+        Logout
+      </button>
     <div className="home-container">
+
       <div className="home-header">
         <h1>
           <FontAwesomeIcon icon={faListCheck} /> To-Do List
         </h1>
-        <TodoForm onAdd={handleAdd} />
+
+        <div className="header-actions">
+          <TodoForm onAdd={handleAdd} />
+        </div>
       </div>
+
       <div className="todo-list-container">
         <TodoList
           todos={todos}
@@ -70,6 +91,7 @@ const Home = () => {
         />
       </div>
     </div>
+    </>
   );
 };
 

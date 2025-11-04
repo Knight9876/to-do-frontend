@@ -7,14 +7,12 @@ const api = axios.create({
   },
 });
 
-// Optional interceptors for logging or token injection
-api.interceptors.request.use(
-  (config) => {
-    console.log(`[API Request]: ${config.method?.toUpperCase()} ${config.url}`);
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
+// Add JWT automatically
+api.interceptors.request.use((req) => {
+  const token = localStorage.getItem("token");
+  if (token) req.headers.Authorization = `Bearer ${token}`;
+  return req;
+});
 
 api.interceptors.response.use(
   (response) => response,

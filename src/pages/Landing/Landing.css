@@ -1,0 +1,151 @@
+.landing-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: center;
+  color: #eaeaea;
+  animation: fadeIn 0.6s ease;
+}
+
+.landing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #00bfa6;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid #00bfa6;
+  color: #00bfa6;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  margin-left: 0.6rem;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background-color: #00bfa6;
+  color: #1e1e2f;
+}
+
+.nav-btn.primary {
+  background-color: #00bfa6;
+  color: #1e1e2f;
+  font-weight: 500;
+}
+.nav-btn.primary:hover {
+  background-color: #00a18d;
+}
+
+.hero {
+  padding: 2rem 1rem;
+  background-color: #2a2a3d;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.hero .accent {
+  color: #00bfa6;
+}
+
+.hero p {
+  color: #b5b5c9;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.cta-buttons button {
+  background-color: #00bfa6;
+  color: #1e1e2f;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.cta-buttons button:hover {
+  background-color: #00a18d;
+}
+
+.cta-buttons .outline {
+  background-color: transparent;
+  border: 1px solid #00bfa6;
+  color: #00bfa6;
+}
+
+.cta-buttons .outline:hover {
+  color: black;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.feature {
+  flex: 1 1 30%;
+  background-color: #2a2a3d;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.feature-icon {
+  color: #00bfa6;
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.feature h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  color: #ffffff;
+}
+
+.feature p {
+  color: #b5b5c9;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.landing-footer {
+  margin-top: 2rem;
+  color: #8e8ea8;
+  font-size: 0.9rem;
+}

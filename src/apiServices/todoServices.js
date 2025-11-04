@@ -1,6 +1,6 @@
 import api from "../config/axiosConfig.js";
 
-export const todoService = {
+export const todoServices = {
   getTodos: async () => {
     try {
       const res = await api.get("/todos");
