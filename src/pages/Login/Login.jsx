@@ -2,11 +2,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { authServices } from "../../apiServices/authServices.js";
+import SubLoader from "../../components/SubLoader/SubLoader.jsx";
 
-export default function Login() {
+export default function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -14,12 +16,16 @@ export default function Login() {
     setError("");
 
     try {
+      setIsLoggingIn(true);
       const res = await authServices.login({ email, password });
       localStorage.setItem("token", res.token);
+      onLogin?.(); // update App state
       navigate("/home");
     } catch (err) {
       const msg = err.response?.data?.message || "Login failed";
       setError(msg);
+    } finally {
+      setIsLoggingIn(false);
     }
   };
 
@@ -52,8 +58,15 @@ export default function Login() {
 
         {error && <p className="error">{error}</p>}
 
-        <button type="submit" className="auth-btn">
-          Login
+        <button disabled={isLoggingIn} type="submit" className="auth-btn">
+          {isLoggingIn ? (
+            <div className="auth-btn-loader">
+              <p>Logging in...</p>
+              <SubLoader />
+            </div>
+          ) : (
+            "Login"
+          )}
         </button>
       </form>
 

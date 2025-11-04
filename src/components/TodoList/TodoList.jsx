@@ -3,11 +3,12 @@ import TodoItem from "../TodoItem/TodoItem";
 import "./TodoList.css";
 import { faFaceSurprise } from "@fortawesome/free-solid-svg-icons";
 
-const TodoList = ({ todos, onToggle, onDelete }) => {
+const TodoList = ({ todos, onToggle, onDelete, onEdit }) => {
   if (!todos.length)
     return (
       <p className="no-todos">
-        Wow! No todo(s) remaining&nbsp; <FontAwesomeIcon size="2x" icon={faFaceSurprise} />
+        Wow! No todo(s) remaining&nbsp;{" "}
+        <FontAwesomeIcon size="2x" icon={faFaceSurprise} />
       </p>
     );
   return (
@@ -18,6 +19,7 @@ const TodoList = ({ todos, onToggle, onDelete }) => {
           todo={todo}
           onToggle={onToggle}
           onDelete={onDelete}
+          onEdit={onEdit}
         />
       ))}
     </ul>

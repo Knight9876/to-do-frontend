@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./TodoForm.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen, faPenToSquare, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const TodoForm = ({ onAdd }) => {
   const [title, setTitle] = useState("");
@@ -33,7 +33,7 @@ const TodoForm = ({ onAdd }) => {
         />
       </div>
       <button type="submit">
-        <FontAwesomeIcon icon={faPen} />
+        <FontAwesomeIcon icon={faPlus} />
       </button>
     </form>
   );

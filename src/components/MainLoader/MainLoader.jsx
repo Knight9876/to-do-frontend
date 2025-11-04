@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Loader = () => {
+const MainLoader = () => {
   return (
     <StyledWrapper>
       <div className="book">
@@ -339,4 +339,4 @@ const StyledWrapper = styled.div`
     }
   }`;
 
-export default Loader;
+export default MainLoader;

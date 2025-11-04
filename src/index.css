@@ -31,7 +31,6 @@ body {
 h1 {
   text-align: center;
   color: #ffffff;
-  margin-bottom: 1.5rem;
   font-weight: 600;
   font-size: 1.8rem;
 }
@@ -50,7 +49,7 @@ button {
 
 button:hover {
   background-color: #00a18d;
-  transform: translateY(-1px);
+  transform: scale(1.05);
 }
 
 /* 📱 Responsive design */

@@ -43,7 +43,7 @@
   justify-content: center;
   width: 55px;
   height: 55px;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   border-radius: 12px;
   background-color: #00bfa6;
   transition: background-color 0.2s ease, transform 0.1s ease;
@@ -51,7 +51,6 @@
 
 .todo-form button:hover {
   background-color: #00a18d;
-  transform: translateY(-1px);
 }
 
 /* Add icon inside button */

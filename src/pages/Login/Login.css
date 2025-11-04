@@ -54,6 +54,21 @@
   font-size: 1rem;
 }
 
+.auth-btn-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.auth-btn:disabled {
+  opacity: 0.5;
+}
+
+.auth-btn:disabled:hover {
+  transform: scale(1);
+}
+
 .error {
   color: #ff6b6b;
   font-size: 0.9rem;

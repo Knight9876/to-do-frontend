@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import "./TodoItem.css";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const TodoItem = ({ todo, onToggle, onDelete }) => {
+const TodoItem = ({ todo, onToggle, onDelete, onEdit }) => {
   return (
     <li className="todo-item">
       <div className="todo-item-left">
@@ -20,9 +20,15 @@ const TodoItem = ({ todo, onToggle, onDelete }) => {
           )}
         </div>
       </div>
-      <button className="delete-btn" onClick={() => onDelete(todo._id)}>
-        <FontAwesomeIcon icon={faTrash} />
-      </button>
+
+      <div className="todo-actions">
+        <button className="edit-btn" onClick={() => onEdit(todo)}>
+          <FontAwesomeIcon icon={faPenToSquare} />
+        </button>
+        <button className="delete-btn" onClick={() => onDelete(todo._id)}>
+          <FontAwesomeIcon icon={faTrash} />
+        </button>
+      </div>
     </li>
   );
 };

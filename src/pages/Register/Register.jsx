@@ -2,12 +2,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
 import { authServices } from "../../apiServices/authServices";
+import SubLoader from "../../components/SubLoader/SubLoader";
 
 export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isRegistering, setIsRegistering] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -15,12 +17,15 @@ export default function Register() {
     setError("");
 
     try {
+      setIsRegistering(true)
       await authServices.register({ name, email, password });
       alert("Registration successful!");
       navigate("/login");
     } catch (err) {
       const msg = err.response?.data?.message || "Registration failed";
       setError(msg);
+    } finally {
+      setIsRegistering(false)
     }
   };
 
@@ -64,8 +69,15 @@ export default function Register() {
 
         {error && <p className="error">{error}</p>}
 
-        <button type="submit" className="auth-btn">
-          Register
+        <button disabled={isRegistering} type="submit" className="auth-btn">
+          {isRegistering ? (
+            <div className="auth-btn-loader">
+              <p>Registering...</p>
+              <SubLoader />
+            </div>
+          ) : (
+            "Register"
+          )}
         </button>
       </form>
 
